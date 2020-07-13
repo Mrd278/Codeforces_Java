@@ -1,6 +1,7 @@
 // My Template File For Competitive Programming
 
 #include<bits/stdc++.h>
+#include<string>
 using namespace std;
 
 #define fo(i,s,n) for(int i = s; i < n; i++)
@@ -158,7 +159,17 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	
+    string a,b;
+    cin>>a;
+    b.append(1,a[0]);
+    fo(i,0,a.size()-1)
+    {
+        if(i & 1)
+            b.append(1,a[i]);
+    }
+    b.append(1,a[a.size()-1]);
+
+    cout<<b<<'\n';
 }
 
 int main()

@@ -15,19 +15,19 @@ typedef unsigned long long int ull;
 
 
 //// Binary Exponentiation
-// template<typename T>
-//T binpow(T a, T b)
-//{
-//	T res = 1;
-//	while(b > 0)
-//	{
-//		if(b & 1)
-//			res *= a;
-//		a *= a;
-//		b>>= 1;	
-//	}
-//	return res;
-//}
+template<typename T>
+T binpow(T a, T b)
+{
+	T res = 1;
+	while(b > 0)
+	{
+		if(b & 1)
+			res *= a;
+		a *= a;
+		b>>= 1;	
+	}
+	return res;
+}
 //
 //// Modular Binary Exponentiation
 // template<typename T>
@@ -158,7 +158,21 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	
+	ll n, a, b;
+    cin>>n;
+    if(n == 2)
+        cout<<"2"<<'\n';
+    else
+    {
+        a = binpow(2ll,n);
+        b = binpow(2ll,n-1);
+        for(ll i = 1; i <= n/2 - 1; i++)
+        {
+            a += binpow(2ll, i);
+            b += binpow(2ll, n - i - 1);
+        }
+        cout<<abs(a - b)<<'\n';
+    }
 }
 
 int main()

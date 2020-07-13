@@ -158,7 +158,24 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	
+	int mishka = 0, chris = 0, n;
+    cin>>n;
+    fo(i,0,n)
+    {
+        int a,b;
+        cin>>a>>b;
+        if(a > b)
+            mishka++;
+        else if(a < b)
+            chris++;
+    }
+
+    if(mishka > chris)
+        cout<<"Mishka"<<'\n';
+    else if(mishka < chris)
+        cout<<"Chris"<<'\n';
+    else
+        cout<<"Friendship is magic!^^"<<'\n';
 }
 
 int main()
@@ -174,9 +191,9 @@ int main()
 	cout<<fixed;
 	cout<<setprecision(10);
 	
-	ll t;
-	cin>>t;
-	while(t--)
-		solve();
+	// ll t;
+	// cin>>t;
+	// while(t--)
+	solve();
 	return 0;
 }

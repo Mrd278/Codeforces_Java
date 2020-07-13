@@ -158,7 +158,16 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	
+	int n,k, count = 0;
+    cin>>n>>k;
+    fo(i,0,n)
+    {
+        int temp;
+        cin>>temp;
+        if(temp <= 5-k)
+            count++;
+    }
+    cout<<count/3;
 }
 
 int main()
@@ -174,9 +183,9 @@ int main()
 	cout<<fixed;
 	cout<<setprecision(10);
 	
-	ll t;
-	cin>>t;
-	while(t--)
-		solve();
+	// ll t;
+	// cin>>t;
+	// while(t--)
+	solve();
 	return 0;
 }

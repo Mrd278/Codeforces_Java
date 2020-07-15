@@ -15,19 +15,19 @@ typedef unsigned long long int ull;
 
 
 //// Binary Exponentiation
-// template<typename T>
-//T binpow(T a, T b)
-//{
-//	T res = 1;
-//	while(b > 0)
-//	{
-//		if(b & 1)
-//			res *= a;
-//		a *= a;
-//		b>>= 1;	
-//	}
-//	return res;
-//}
+template<typename T>
+T binpow(T a, T b)
+{
+	T res = 1;
+	while(b > 0)
+	{
+		if(b & 1)
+			res *= a;
+		a *= a;
+		b>>= 1;	
+	}
+	return res;
+}
 //
 //// Modular Binary Exponentiation
 // template<typename T>
@@ -158,29 +158,9 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	ll n, k, s = 0;
-    cin>>n>>k;
-    vector<ll> a(n);
-    vector<ll> b(n);
-
-    fo(i,0,n)
-        cin>>a[i];
-    fo(i,0,n)
-        cin>>b[i];
-
-    sort(a.begin(), a.end(), greater<ll>());
-    sort(b.begin(), b.end());
-
-    for(ll i=n-1; i >= 0; i--)
-    {
-        if(k){
-            s += max(a[i], b[i]);
-            k--;
-        }
-        else
-            s += a[i];
-    }
-    cout<<s<<'\n';
+	ll x,i = 0;
+    cin>>x;
+    cout<<__builtin_popcount(x)<<'\n';
 }
 
 int main()
@@ -196,9 +176,9 @@ int main()
 	cout<<fixed;
 	cout<<setprecision(10);
 	
-	ll t;
-	cin>>t;
-	while(t--)
-		solve();
+	// ll t;
+	// cin>>t;
+	// while(t--)
+	solve();
 	return 0;
 }

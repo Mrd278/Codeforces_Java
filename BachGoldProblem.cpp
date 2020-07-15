@@ -158,29 +158,23 @@ typedef unsigned long long int ull;
 
 void solve()
 {
-	ll n, k, s = 0;
-    cin>>n>>k;
-    vector<ll> a(n);
-    vector<ll> b(n);
-
-    fo(i,0,n)
-        cin>>a[i];
-    fo(i,0,n)
-        cin>>b[i];
-
-    sort(a.begin(), a.end(), greater<ll>());
-    sort(b.begin(), b.end());
-
-    for(ll i=n-1; i >= 0; i--)
+    int n;
+    cin>>n;
+    if(n & 1)
     {
-        if(k){
-            s += max(a[i], b[i]);
-            k--;
-        }
-        else
-            s += a[i];
+        cout<<n/2<<'\n';
+        fo(i,0,n/2-1)
+            cout<<"2 ";
+        cout<<"3 \n";
+    }    
+    else
+    {
+        cout<<n/2<<'\n';
+        fo(i,0,n/2)
+            cout<<"2 ";
+        cout<<'\n';
     }
-    cout<<s<<'\n';
+    
 }
 
 int main()
@@ -196,9 +190,9 @@ int main()
 	cout<<fixed;
 	cout<<setprecision(10);
 	
-	ll t;
-	cin>>t;
-	while(t--)
-		solve();
+	// ll t;
+	// cin>>t;
+	// while(t--)
+	solve();
 	return 0;
 }

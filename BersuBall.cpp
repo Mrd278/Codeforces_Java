@@ -1,19 +1,19 @@
 // My Template File For Competitive Programming
-
+ 
 #include<bits/stdc++.h>
 using namespace std;
-
+ 
 #define fo(i,s,n) for(int i = s; i < n; i++)
 #define deb(x) cout<<#x<<" is "<<x<<'\n';
 #define x first
 #define y second
 #define mod 1e9+7
-
+ 
 typedef long long ll;
 typedef long long int lli;
 typedef unsigned long long int ull;
-
-
+ 
+ 
 //// Binary Exponentiation
 // template<typename T>
 //T binpow(T a, T b)
@@ -154,51 +154,63 @@ typedef unsigned long long int ull;
 //	else
 //		return {c,d};
 //}
-
-
+ 
+ 
 void solve()
 {
-	ll n, k, s = 0;
-    cin>>n>>k;
-    vector<ll> a(n);
-    vector<ll> b(n);
-
+    int n;
+    cin>>n;
+    vector<int> a(n);
     fo(i,0,n)
         cin>>a[i];
-    fo(i,0,n)
+    int m;
+    cin>>m;
+    vector<int> b(m);
+    fo(i,0,m)
         cin>>b[i];
-
-    sort(a.begin(), a.end(), greater<ll>());
+ 
+    sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-
-    for(ll i=n-1; i >= 0; i--)
+ 
+    if((a[0] > b[m-1]+1) || (b[0] > a[n-1]+1))
+        cout<<"0"<<'\n';
+    
+    else
     {
-        if(k){
-            s += max(a[i], b[i]);
-            k--;
+        int c = 0;
+        fo(i,0,n)
+        {
+            fo(j,0,m)
+            {
+                if(abs(b[j]-a[i]) <= 1)
+                {
+                    b[j] = 1000;
+                    c++;
+                    break;
+                }
+            }
         }
-        else
-            s += a[i];
+        cout<<c<<'\n';
+        
     }
-    cout<<s<<'\n';
 }
-
+ 
 int main()
 {
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt","w", stdout);
 	#endif
-
+ 
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
 	cout<<fixed;
 	cout<<setprecision(10);
 	
-	ll t;
-	cin>>t;
-	while(t--)
-		solve();
+	// ll t;
+	// cin>>t;
+	// while(t--)
+	solve();
 	return 0;
 }
